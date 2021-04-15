@@ -5,8 +5,7 @@
     - Flux configurations, generated from `flux bootstrap`
 - `/clusters/${cluster}/apps.yaml`
     - Configuration to watch `apps/${cluster}/` directory
-- `/clusters/${cluster}/uat.yaml`
-    - Configuration to watch `apps/` directory on `uat` branch
+    - kind cluster is also watching `apps/` on the `uat` branch
 - `/apps/`
     - Helm releases & repos for each cluster
 
@@ -14,15 +13,11 @@
 
 ### Setup:
 ```
-kind create cluster --name kind
-kind create cluster --name kind2
-
 export GITHUB_TOKEN=xxx
 export GITHUB_USER=xxx
 
 
-## set context
-kubectx kind-kind
+kind create cluster --name kind
 
 ## install flux & setup repo
 flux bootstrap github \
@@ -34,8 +29,7 @@ flux bootstrap github \
   --private
 
 
-## set context
-kubectx kind-kind2
+kind create cluster --name kind2
 
 ## install flux & setup repo
 flux bootstrap github \

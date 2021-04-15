@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mario
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: mario
+      sourceRef:
+        kind: HelmRepository
+        name: ackman
+        namespace: flux-system
+  values:
+    replicaCount: 1

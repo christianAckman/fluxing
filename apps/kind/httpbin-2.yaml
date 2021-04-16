@@ -13,4 +13,4 @@ spec:
         name: ackman
         namespace: flux-system
   values:
-    replicaCount: 1
+    replicaCount: 2

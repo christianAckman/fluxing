@@ -8,6 +8,7 @@ spec:
   chart:
     spec:
       chart: httpbin
+      version: 0.1.4
       sourceRef:
         kind: HelmRepository
         name: ackman
